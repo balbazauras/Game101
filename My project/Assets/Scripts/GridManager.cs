@@ -7,6 +7,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int row;
     [SerializeField] private int col;
     [SerializeField] private GameObject ground;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +30,14 @@ public class GridManager : MonoBehaviour
                 worldCube.name = $"Tile {i} {j}";
             }
         }
+        for (int i = 2; i < row-2; i++)
+        {
+            for (int j = 2; j < col-2; j++)
+            {
+                var worldCube = Instantiate(ground, new Vector3(j, 1, i), Quaternion.identity);
+                worldCube.name = $"Tile {i} {j}";
+            }
+        }
+
     }
 }
